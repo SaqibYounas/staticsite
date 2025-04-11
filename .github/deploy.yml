@@ -1,0 +1,21 @@
+name: "CI Deploy"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest    # ✅ Correct OS value: "windows-latest" not "Window"
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # ✅ Get your code from GitHub
+
+      - name: Deploy Static HTML (Optional Step)
+        run: echo "HTML static website ready to deploy!"  
+        # ✅ Here you can run deploy commands if you're using GitHub Pages or Netlify etc.
